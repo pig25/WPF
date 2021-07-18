@@ -24,5 +24,15 @@ namespace WPF_FORM
         {
             InitializeComponent();
         }
+
+        private void Button_3D5_Click(object sender, RoutedEventArgs e)
+        {
+            if (Double.TryParse(button_3D5.Content.ToString(), out double number))
+            {
+                button_3D5.Content = number+=10;
+            }
+       
+
+        }
     }
 }

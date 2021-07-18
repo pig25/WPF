@@ -55,7 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Button_3D.cs" />
-    <Compile Include="Convert\ColorConvert.cs" />
+    <Compile Include="Converts\ColorConvert.cs" />
+    <Compile Include="Converts\ColorRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
