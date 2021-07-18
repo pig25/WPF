@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_FORM", "WPF_FORM\WPF_FORM.csproj", "{43E6BDCA-1D70-41D4-A3CF-16E21B860E20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlStyle", "WpfControlStyle\WpfControlStyle.csproj", "{2A989B06-BBD4-4177-8225-58053D177483}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43E6BDCA-1D70-41D4-A3CF-16E21B860E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E6BDCA-1D70-41D4-A3CF-16E21B860E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E6BDCA-1D70-41D4-A3CF-16E21B860E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E6BDCA-1D70-41D4-A3CF-16E21B860E20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A989B06-BBD4-4177-8225-58053D177483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A989B06-BBD4-4177-8225-58053D177483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A989B06-BBD4-4177-8225-58053D177483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A989B06-BBD4-4177-8225-58053D177483}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DA7A933-BB40-4AF0-A355-A34930F5F6AD}
+	EndGlobalSection
+EndGlobal
