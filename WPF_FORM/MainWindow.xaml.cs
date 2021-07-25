@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,14 +26,27 @@ namespace WPF_FORM
             InitializeComponent();
         }
 
-        private void Button_3D5_Click(object sender, RoutedEventArgs e)
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Double.TryParse(button_3D5.Content.ToString(), out double number))
+            ToggleButton toggleButton = sender as ToggleButton;
+            if ((bool)toggleButton.IsChecked)
             {
-                button_3D5.Content = number+=10;
+                this.WindowState = WindowState.Maximized;
             }
-       
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
 
+        private void WindowMinButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void WindowCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
