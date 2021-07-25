@@ -48,5 +48,10 @@ namespace WPF_FORM
         {
             this.Close();
         }
+
+        private void OnSelectedItemChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            MainScrollViewer.ScrollToHome();
+        }
     }
 }

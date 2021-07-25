@@ -8,6 +8,8 @@
     <converters:ColorConvert x:Key="ColorConvert" />
     <converters:ColorRange x:Key="ColorRange" />
     <Style TargetType="{x:Type local:Button_3D}">
+        <Setter Property="Content"
+                Value="0"></Setter>
         <Setter Property="Background"
                 Value="Blue"></Setter>
         <Setter Property="MouseOverColor"

@@ -7,8 +7,8 @@
         x:Class="WPF_FORM.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="600"
-        Width="800"
+        Height="768"
+        Width="1366"
         WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -17,21 +17,21 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         AllowsTransparency="True"
-        WindowStyle="None"
-       
-       >
+        WindowStyle="None">
     <materialDesign:DrawerHost BorderBrush="{DynamicResource MaterialDesignDivider}"
                                IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
         <materialDesign:DrawerHost.LeftDrawerContent>
-            <StackPanel Margin="16">
+            <StackPanel Margin="16"
+                        Width="200">
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
                               DockPanel.Dock="Top"
                               HorizontalAlignment="Right"
                               IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
             </StackPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
-        <Grid>
+        <DockPanel>
             <materialDesign:ColorZone Mode="PrimaryMid"
+                                      DockPanel.Dock="Top"
                                       Padding="16">
                 <DockPanel LastChildFill="True">
                     <StackPanel Orientation="Horizontal"
@@ -41,10 +41,13 @@
                                       IsChecked="False"
                                       Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                       CommandParameter="{x:Static Dock.Left}" />
-                        <TextBlock Margin="16">Material Design In XAML Toolkit 練習</TextBlock>
+                        <TextBlock Margin="16" VerticalAlignment="Center">Material Design In XAML Toolkit 練習</TextBlock>
                     </StackPanel>
                     <WrapPanel  DockPanel.Dock="Right">
-                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Name="WindowMinButton" Click="WindowMinButton_Click">
+                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                Name="WindowMinButton"
+                                Click="WindowMinButton_Click"
+                                Margin="16">
                             <materialDesign:PackIcon Kind="WindowMinimize" />
                         </Button>
                         <ToggleButton Style="{StaticResource MaterialDesignActionToggleButton}"
@@ -52,16 +55,35 @@
                                       IsChecked="False"
                                       Content="{materialDesign:PackIcon Kind=WindowMaximize}"
                                       materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=WindowRestore}"
-                                      Click="ToggleButton_Click">
-                           
-                        </ToggleButton>
-                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Name="WindowCloseButton" Click="WindowCloseButton_Click">
+                                      Click="ToggleButton_Click"></ToggleButton>
+                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                Name="WindowCloseButton"
+                                Click="WindowCloseButton_Click">
                             <materialDesign:PackIcon Kind="WindowClose" />
                         </Button>
                     </WrapPanel>
                     <Canvas></Canvas>
                 </DockPanel>
             </materialDesign:ColorZone>
-        </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="131*" />
+                    <ColumnDefinition Width="69*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ScrollViewer Grid.Row="1"
+                              Name="MainScrollViewer"
+                              HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto"
+                              Grid.ColumnSpan="2"
+                              materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True">
+                    <ContentControl  DataContextChanged="OnSelectedItemChanged"
+                                     Content="{Binding Content, UpdateSourceTrigger=PropertyChanged, FallbackValue={x:Null}}" />
+                </ScrollViewer>
+            </Grid>
+        </DockPanel>
     </materialDesign:DrawerHost>
 </Window>
