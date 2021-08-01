@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_FORM", "WPF_FORM\WPF_FO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlStyle", "WpfControlStyle\WpfControlStyle.csproj", "{2A989B06-BBD4-4177-8225-58053D177483}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2A989B06-BBD4-4177-8225-58053D177483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A989B06-BBD4-4177-8225-58053D177483}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A989B06-BBD4-4177-8225-58053D177483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
