@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        xmlns:HelixToolkit="http://helix-toolkit.org/wpf"
+        xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
@@ -12,26 +12,31 @@
   
     
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Button x:Name="button"
-                Content="Button"
-                Click="button_Click"
-                Grid.Row="0" />
-        <HelixToolkit:HelixViewport3D x:Name="myView"
-                                      ZoomExtentsWhenLoaded="True"
-                                      Grid.Row="1">
-            <!-- Remember to add light to the scene -->
-            <HelixToolkit:SunLight />
-            <ModelVisual3D x:Name="foo" />
-            <!-- You can also add elements here in the xaml -->
-            <HelixToolkit:GridLinesVisual3D Width="8"
-                                            Length="8"
-                                            MinorDistance="1"
-                                            MajorDistance="1"
-                                            Thickness="0.01" />
-        </HelixToolkit:HelixViewport3D>
+        <hx:Viewport3DX Camera="{Binding Camera}"
+                        EffectsManager="{Binding EffectsManager}">
+            <hx:GroupModel3D>
+                <hx:DirectionalLight3D Direction="0, 0, -1"
+                                       Color="White" />
+                <hx:DirectionalLight3D Direction="0, -1, 0"
+                                       Color="White" />
+            </hx:GroupModel3D>
+            <hx:GroupModel3D>
+                <hx:SpotLight3D Direction="0, 1, 0"
+                                Color="Red"
+                                Position="0, -2, 0" />
+                <hx:PointLight3D Position="3, 0, 0"
+                                 Color="Green" />
+            </hx:GroupModel3D>
+            <hx:MeshGeometryModel3D Geometry="{Binding CubeMesh1}"
+                                    Material="{Binding Red}" />
+            <hx:GroupModel3D>
+                <hx:MeshGeometryModel3D Geometry="{Binding CubeMesh2}"
+                                        Material="{Binding Material1}" />
+                <hx:MeshGeometryModel3D Geometry="{Binding CubeMesh3}"
+                                        Material="{Binding Material2}" />
+                <hx:MeshGeometryModel3D Geometry="{Binding CubeMesh4}"
+                                        Material="{Binding Material3}" />
+            </hx:GroupModel3D>
+        </hx:Viewport3DX>
     </Grid>
 </Window>

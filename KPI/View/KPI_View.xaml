@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="KPI.View.KPI_View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:KPI.View"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DatePicker MinWidth="150"
+                    FontSize="30"
+                    Language="zh-TW"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    materialDesign:HintAssist.Hint="日期"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                    Text="{Binding Date}" />
+        <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right " Height="50" Margin="5" >
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Send" Width="30" Height="30" />
+                <TextBlock Text="提交" FontSize="30"/>
+            </StackPanel>
+            
+        </Button>
+        <DataGrid Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False"
+                  Name="gridkpi"
+                  ItemsSource="{Binding dataTable}"
+                  CanUserAddRows="False"
+                  SelectionUnit="Cell"
+                  SelectionMode="Extended"
+                  FrozenColumnCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding NO}"
+                                    Header="序"
+                                    IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding ITEM}"
+                                    Header="項目"
+                                    IsReadOnly="True"
+                                    Width="300">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

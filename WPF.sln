@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlStyle", "WpfContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KPI", "KPI\KPI.csproj", "{5A8005EE-9F89-4835-8ECA-040A3FD167EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{460C0A0D-3139-4EE5-8B1B-690ED1E6F7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A8005EE-9F89-4835-8ECA-040A3FD167EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A8005EE-9F89-4835-8ECA-040A3FD167EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A8005EE-9F89-4835-8ECA-040A3FD167EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A8005EE-9F89-4835-8ECA-040A3FD167EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
