@@ -55,7 +55,11 @@ namespace KPI.ViewModel
                 "ClipboardEditOutline",
                 typeof(KPI_View)
                );
-
+            yield return new Menu_Model(
+                "員工",
+                "AccountGroup",
+                typeof(Employee_View)
+               );
         }
     }
 }

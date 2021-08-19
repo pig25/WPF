@@ -22,6 +22,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <DatePicker MinWidth="150"
                     FontSize="30"
@@ -54,11 +55,13 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding NO}"
                                     Header="序"
-                                    IsReadOnly="True" />
+                                    IsReadOnly="True" 
+                                    x:Name="NO"/>
                 <DataGridTextColumn Binding="{Binding ITEM}"
                                     Header="項目"
                                     IsReadOnly="True"
-                                    Width="300">
+                                    Width="300"
+                                    x:Name="ITEM">
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping"
@@ -66,6 +69,31 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False"
+                  FrozenColumnCount="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                                    Header="序"
+                                    IsReadOnly="True"
+                    Width="{Binding ElementName=NO,Path=ActualWidth}"
+                                    />
+                <DataGridTextColumn 
+                                    Header="項目"
+                                    IsReadOnly="True"
+                                    Width="{Binding ElementName=ITEM,Path=ActualWidth}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping"
+                                    Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+               
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
