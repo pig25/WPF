@@ -15,7 +15,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
-    <materialDesign:DialogHost>
+    <materialDesign:DialogHost Identifier="dialogHost">
          <materialDesign:DrawerHost x:Name="DrawerHost"
                                BorderBrush="{DynamicResource MaterialDesignDivider}"
                                IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">

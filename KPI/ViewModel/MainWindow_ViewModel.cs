@@ -60,6 +60,16 @@ namespace KPI.ViewModel
                 "AccountGroup",
                 typeof(Employee_View)
                );
+            yield return new Menu_Model(
+             "權限",
+             "FaceAgent",
+             typeof(Authority_View)
+            );
+            yield return new Menu_Model(
+           "帳號",
+           "AccountTie",
+           typeof(Account_View)
+          );
         }
     }
 }

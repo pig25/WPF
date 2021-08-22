@@ -14,6 +14,7 @@
              TextElement.FontWeight="Medium"
              TextElement.FontSize="14"
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+  
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -24,18 +25,26 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <DatePicker MinWidth="150"
-                    FontSize="30"
-                    Language="zh-TW"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    HorizontalAlignment="Left"
-                    materialDesign:HintAssist.Hint="日期"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                    Text="{Binding Date}" />
+        <StackPanel Orientation="Horizontal">
+            <ComboBox x:Name="OutlinedComboBox"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                  IsEnabled="True"
+                  materialDesign:HintAssist.Hint="評分人員"
+                  ItemsSource="{Binding ShortStringList}"
+                  Width="256" />
+            <DatePicker Width="140"
+              
+                        Language="zh-TW"
+                        Text="{Binding Date}"
+                        materialDesign:HintAssist.Hint="日期"
+                        Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+           
+        </StackPanel>
+        
+      
         <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right " Height="50" Margin="5" >
+                Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right " Height="50" Margin="5" Click="Button_Click" >
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Send" Width="30" Height="30" />
                 <TextBlock Text="提交" FontSize="30"/>

@@ -46,8 +46,18 @@ namespace KPI.View
 
 
                 });
+
             }
         }
 
+        private void chkSelect_Checked(object sender, RoutedEventArgs e)
+        {
+            //    throw new NotImplementedException();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine();
+        }
     }
 }

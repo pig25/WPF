@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="KPI">
+  <DataContextMoniker Name="/KPIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="69eb9c3c-f7a0-493d-bcd9-b0243ab6b5aa" absoluteBounds="0.75, 0.75, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/KPIDataContext/員工" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf0de344-b875-42ab-a3aa-68675bed000e" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c1c18044-b379-4327-a7e5-b08e9281601c" absoluteBounds="3.75, 0.75, 2, 1.1677168782552085">
+      <DataClassMoniker Name="/KPIDataContext/職務代理人" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13369bc4-f4f5-4fe2-b3b3-8d52cb7654fb" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7e6f725a-7ac1-499f-84ba-e69591838c8a" absoluteBounds="0.75, 3.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/KPIDataContext/帳號" />
+      <nestedChildShapes>
+        <elementListCompartment Id="844ca21e-fd77-44eb-bf31-ed1e9efe0d60" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b16a415f-faa9-442c-a6da-0c2b2c8c9f99" absoluteBounds="3.75, 2.75, 2, 1.1677168782552085">
+      <DataClassMoniker Name="/KPIDataContext/部門" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37165719-4b22-4c9e-9cd2-27b29454082d" absoluteBounds="3.765, 3.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0973d63-4ba8-4a4b-b32d-b66c5fde931a" absoluteBounds="3.75, 4.75, 2, 1.1677168782552094">
+      <DataClassMoniker Name="/KPIDataContext/腳色" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29c34840-d27a-48f4-969e-e28ddb2a9898" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d7ce9f7e-fdd9-4e6d-bda5-24ed52f0f4ac" absoluteBounds="6.75, 0.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/KPIDataContext/腳色明細" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58c966cb-b743-4397-8968-f1f9ac1cdf37" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c249a1bf-8e75-4af0-aa3f-99e12c2d04d9" absoluteBounds="0.75, 6.75, 2, 1.1677168782552094">
+      <DataClassMoniker Name="/KPIDataContext/職位" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d1fe9d3-bb64-487c-a82e-0930bd53787b" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
