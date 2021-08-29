@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:KPI.View"
+             xmlns:converts="clr-namespace:KPI.Converters"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -13,7 +14,13 @@
              Background="{DynamicResource MaterialDesignPaper}"
              TextElement.FontWeight="Medium"
              TextElement.FontSize="14"
-             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <converts:DatagridcellConverter x:Key="DatagridcellConverter" />
+        <converts:WidthTOStartSizeConverter x:Key="WidthTOStartSizeConverter" />
+        <converts:HeightTOEndSizeConverter x:Key="HeightTOEndSizeConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -33,10 +40,27 @@
                    Margin="10"/>
         <ComboBox x:Name="OutlinedComboBox"
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                  IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                
                   materialDesign:HintAssist.Hint="腳色"
-                  ItemsSource="{Binding ShortStringList}"
-                  Width="256" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" />
+                  ItemsSource="{Binding 腳色}"
+                  SelectedItem="{Binding 選擇腳色}"
+                  
+                  SelectionChanged="OutlinedComboBox_SelectionChanged"
+                  Width="256"
+                  Grid.Column="1"
+                  Grid.Row="0"
+                  HorizontalAlignment="Left">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding 代號}" />
+                        <TextBlock Text="       " />
+                        <TextBlock Text="{Binding 名稱}" />
+                    </StackPanel>
+                   
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                     Orientation="Horizontal" Margin="10">
             <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
@@ -45,21 +69,34 @@
                     Content="新增">
                 <Button.CommandParameter>
                     <StackPanel Margin="16">
-                        <TextBlock Text="Add a new fruit." />
-                        <TextBox Margin="0 8 0 0"
-                                 HorizontalAlignment="Stretch"
-                                 x:Name="FruitTextBox" />
+                        <TextBlock Text="新增腳色" />
+                  
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 VerticalAlignment="Top"
+                                 Height="100"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 materialDesign:HintAssist.Hint="代號"
+                                 Margin="10"
+                              Name="btn_no" />
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                 VerticalAlignment="Top"
+                                 Height="100"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 materialDesign:HintAssist.Hint="名稱"
+                                 Margin="10"
+                                 Name="btn_name" />
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Right">
                             <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     IsDefault="True"
                                     Margin="0 8 8 0"
-                                    Content="ACCEPT"
-                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
-                                <Button.CommandParameter>
-                                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">True</system:Boolean>
-                                </Button.CommandParameter>
-                            </Button>
+                                    Content="新增"
+                                    Name="btn_Add"
+                                    Click="Btn_Add_Click"></Button>
                             <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     IsCancel="True"
                                     Margin="0 8 8 0"
@@ -94,10 +131,56 @@
                                    VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                                    Text="{Binding}" />
+                        <Button Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                               x:Name="btn_update" Click="Btn_update_Click"
+                                Content="修改" />
                     </StackPanel>
                 </DataTemplate>
             </GroupBox.HeaderTemplate>
-           
+            <DataGrid 
+                      CanUserAddRows="False"
+                      SelectionMode="Single"
+                      SelectionUnit="Cell"
+                      ItemsSource="{Binding griddataTable}">
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <DataTrigger  Value="False">
+                                <DataTrigger.Binding>
+                                    <MultiBinding Converter="{StaticResource DatagridcellConverter}">
+                                        <Binding RelativeSource="{RelativeSource self}" />
+                                        <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=UserControl,AncestorLevel=1}"
+                                                 Path="DataContext.dataTable" />
+                                    </MultiBinding>
+                                </DataTrigger.Binding>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Border BorderThickness="1"
+                                                    BorderBrush="Red"
+                                                    Width="{Binding Path=Width,RelativeSource={RelativeSource Mode=Self}}"
+                                                    Height="{Binding Path=Height,RelativeSource={RelativeSource Mode=Self}}"
+                                                    x:Name="border_123">
+                                                <Path Stroke="Red"
+                                                      StrokeThickness="2"
+                                                      Stretch="Fill">
+                                                    <Path.Data>
+                                                        <LineGeometry StartPoint="{Binding  
+                                                        Path=ActualWidth, Converter={StaticResource WidthTOStartSizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor,AncestorLevel=1,AncestorType=Border}}"
+                                                                      EndPoint="{Binding  
+                                                        Path=ActualHeight, Converter={StaticResource HeightTOEndSizeConverter}, Mode=OneWay, RelativeSource={RelativeSource FindAncestor,AncestorLevel=1,AncestorType=Border}}" />
+                                                    </Path.Data>
+                                                </Path>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
         </GroupBox>
     </Grid>
 </UserControl>

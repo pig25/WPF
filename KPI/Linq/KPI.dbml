@@ -51,4 +51,7 @@
       <Column Name="名稱" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Function Name="dbo.腳色樣板PROCEDURE" Method="腳色樣板PROCEDURE">
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

@@ -70,17 +70,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\DatagridcellConverter.cs" />
+    <Compile Include="Converters\HeightTOEndSizeConverter.cs" />
+    <Compile Include="Converters\TaskConverter.cs" />
+    <Compile Include="Converters\WidthTOStartSizeConverter.cs" />
     <Compile Include="Linq\KPI.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KPI.dbml</DependentUpon>
     </Compile>
     <Compile Include="Model\DBHandler.cs" />
+    <Compile Include="RankWindow.xaml.cs">
+      <DependentUpon>RankWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Authority_ViewModel.cs" />
     <Compile Include="ViewModel\Employee_ViewModel.cs" />
     <Compile Include="ViewModel\KPI_Report_ViewModel.cs" />
     <Compile Include="ViewModel\KPI_ViewModel.cs" />
     <Compile Include="ViewModel\Menu_Model.cs" />
     <Compile Include="ViewModel\MainWindow_ViewModel.cs" />
+    <Compile Include="ViewModel\RankWindows_ViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\Account_View.xaml.cs">
       <DependentUpon>Account_View.xaml</DependentUpon>
@@ -113,6 +122,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RankWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Account_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,9 +186,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>

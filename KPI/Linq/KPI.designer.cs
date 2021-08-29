@@ -126,6 +126,13 @@ namespace KPI.Linq
 				return this.GetTable<職位>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.腳色樣板PROCEDURE")]
+		public int 腳色樣板PROCEDURE()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.員工")]

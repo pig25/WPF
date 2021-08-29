@@ -9,6 +9,7 @@ namespace KPI.Model
 {
     class DBHandler
     {
+      
         public DataTable CreateEmployeeScore()
         {
             DataTable dataTable = new DataTable();
