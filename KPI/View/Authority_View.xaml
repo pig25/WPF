@@ -40,11 +40,9 @@
                    Margin="10"/>
         <ComboBox x:Name="OutlinedComboBox"
                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                
                   materialDesign:HintAssist.Hint="腳色"
                   ItemsSource="{Binding 腳色}"
                   SelectedItem="{Binding 選擇腳色}"
-                  
                   SelectionChanged="OutlinedComboBox_SelectionChanged"
                   Width="256"
                   Grid.Column="1"
