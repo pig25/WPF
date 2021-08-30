@@ -14,48 +14,55 @@
              TextElement.FontWeight="Medium"
              TextElement.FontSize="14"
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
-    
-        <Grid>
-        <Grid.ColumnDefinitions >
+    <Grid>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
-            
         </Grid.ColumnDefinitions>
         <DataGrid ItemsSource="{Binding dataTable}"
-                      CanUserAddRows="False"
-                      SelectionUnit="FullRow"
-                      SelectionMode="Single" 
-                      IsReadOnly="True"
+                  CanUserAddRows="False"
+                  SelectionUnit="FullRow"
+                  SelectionMode="Single"
+                  IsReadOnly="True"
                   Name="datagrid_Score"
                   AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
-                
-                  SelectionChanged="DataGrid_SelectionChanged"/>
+                  SelectionChanged="DataGrid_SelectionChanged" />
+        
+     
         <GroupBox Header="{Binding SelectDataRowView}"
                   Style="{DynamicResource MaterialDesignCardGroupBox}"
                   Margin="16"
                   materialDesign:ColorZoneAssist.Mode="SecondaryMid"
                   Grid.Column="1">
+      
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="ImageArea"
-                                                 Height="32"
-                                                 Width="32"
-                                                 VerticalAlignment="Center" />
-                        <TextBlock Margin="8,0,0,0"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                                   Text="{Binding Path=Employee, StringFormat={}{0}評分報表}" />
-                        <TextBlock Margin="8,0,0,0"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                                   Text="{Binding Path=Score, StringFormat=分數:{0}}" />
-                    </StackPanel>
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ImageArea"
+                                                     Height="32"
+                                                     Width="32"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock Margin="8,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                       Text="{Binding Path=Employee, StringFormat={}{0}評分報表}" />
+                            <TextBlock Margin="8,0,0,0"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                       Text="{Binding Path=Score, StringFormat=分數:{0}}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Date, StringFormat=d}"
+                                       VerticalAlignment="Center"
+                                       FontSize="24" />
+                        </StackPanel>
+                      
+                    </DockPanel>
                 </DataTemplate>
             </GroupBox.HeaderTemplate>
             <lvc:CartesianChart Series="{Binding SeriesCollection}"
                                 LegendLocation="Right">
-               
                 <lvc:CartesianChart.AxisY>
                     <lvc:Axis Title="Sales"
                               LabelFormatter="{Binding YFormatter}"
@@ -74,7 +81,8 @@
                               Foreground="Black"
                               Position="RightTop"></lvc:Axis>
                     <lvc:Axis Title="項目"
-                              Labels="{Binding ColumnLabels}" Foreground="Blue">
+                              Labels="{Binding ColumnLabels}"
+                              Foreground="Blue">
                         <lvc:Axis.Separator>
                             <lvc:Separator IsEnabled="False"></lvc:Separator>
                         </lvc:Axis.Separator>
@@ -82,6 +90,45 @@
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </GroupBox>
+        <DockPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="16">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Margin="8">
+                <TextBlock Text="{Binding Path=Date,Mode=OneWay,StringFormat='yyyy/MM'}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock >
+                     <Button Margin="8 0 0 0"
+                Content="選擇日期"
+                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                materialDesign:DialogHost.DialogOpenedAttached="CalendarDialogOpenedEventHandler"
+                materialDesign:DialogHost.DialogClosingAttached="CalendarDialogClosingEventHandler">
+            <Button.CommandParameter>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Viewbox Stretch="Uniform"
+                             Width="300">
+                        <Calendar x:Name="Calendar"
+                                  Margin="-1 -4 -1 0"
+                                  Language="zh-TW"/>
+                    </Viewbox>
+                    <StackPanel Grid.Row="1"
+                                Margin="8"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal">
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                CommandParameter="0"
+                                Content="取消" />
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                CommandParameter="1"
+                                Content="確認" />
+                    </StackPanel>
+                </Grid>
+            </Button.CommandParameter>
+        </Button>
+            </StackPanel>
+           
+        </DockPanel>
+    
     </Grid>
-   
 </UserControl>

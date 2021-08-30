@@ -113,5 +113,22 @@ namespace KPI.View
             }
             KPI_Report_ViewModel.SelectEmployee = KPI_Report_ViewModel.SelectDataRowView.Row["Employee"] as string;
         }
+
+        public void CalendarDialogOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
+           => Calendar.SelectedDate = KPI_Report_ViewModel.Date;
+
+        public void CalendarDialogClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        {
+            if (!Equals(eventArgs.Parameter, "1")) return;
+            
+            if (!Calendar.SelectedDate.HasValue)
+            {
+                eventArgs.Cancel();
+                return;
+            }
+
+            KPI_Report_ViewModel.Date = Calendar.SelectedDate.Value;
+        }
+
     }
 }

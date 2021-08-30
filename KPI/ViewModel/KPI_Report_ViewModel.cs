@@ -11,7 +11,12 @@ namespace KPI.ViewModel
 {
     public class KPI_Report_ViewModel : ViewModelBase
     {
-     
+        private DateTime _Date;
+        public DateTime Date
+        {
+            get => _Date;
+            set => SetProperty(ref _Date, value);
+        }
         private SeriesCollection _SeriesCollection;
         public SeriesCollection SeriesCollection
         {
@@ -67,6 +72,7 @@ namespace KPI.ViewModel
 
         public KPI_Report_ViewModel()
         {
+            Date = DateTime.Now;
             DBHandler dBHandler = new DBHandler();
             SelectDataRowView = null;
                dataTable = dBHandler.CreateEmployeeScore();
